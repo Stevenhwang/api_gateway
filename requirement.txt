@@ -1,0 +1,2 @@
+opm get cdbattags/lua-resty-jwt
+opm get ledgetech/lua-resty-http
