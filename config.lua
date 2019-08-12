@@ -7,4 +7,4 @@ redis_config = {
     db = 10,
 }
 
-login_uri = "172.16.29.98:8000/v1/mg/login/"
+login_uri = "172.16.29.98:8000/v1/login/"
