@@ -8,3 +8,4 @@ redis_config = {
 }
 
 login_uri = "172.16.29.98:8000/v1/login/"
+check_auth_url = "http://172.16.29.98:8000/v1/authcheck/"
