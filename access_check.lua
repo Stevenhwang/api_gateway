@@ -60,7 +60,7 @@ else
         -- 去后端查询是否有路由权限，先把带?号的去掉，避免干扰
         local real_query_end = split.split(real_end, "?")
         local permit = check_auth.check(user_info["user_id"], real_query_end[1], request_method)
-        if permit == false then
+        if permit == "false" then
             ngx.status = 403
             ngx.say("Permission denied!")
             ngx.exit(403)
