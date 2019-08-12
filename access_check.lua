@@ -66,6 +66,7 @@ else
             ngx.exit(403)
         else
             -- 存储日志到redis
+            ngx.req.read_body() -- 调用 ngx.req.read_body() 接口获取body参数
             local data = {
                 username = user_info.username,
                 login_ip = ngx.var.remote_addr,
