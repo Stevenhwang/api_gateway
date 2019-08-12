@@ -65,6 +65,18 @@ else
             ngx.say("Permission denied!")
             ngx.exit(403)
         else
+            -- 存储日志到redis
+            local data = {
+                username = user_info.username,
+                login_ip = ngx.var.remote_addr,
+                method = request_method,
+                uri = real_url,
+                data = ngx.req.get_body_data(),
+                time = os.date('%Y-%m-%d %H:%M:%S')
+            }
+            local new_data = cjson.encode(data)
+            conn:lpush("ops_log", new_data)
+            -- 设置反向代理
             ngx.var.my_upstream = real_url
         end
     end
