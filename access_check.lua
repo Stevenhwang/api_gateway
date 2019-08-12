@@ -10,9 +10,9 @@ local uri = ngx.var.request_uri
 local headers_tab = ngx.req.get_headers()
 
 -- 请求白名单
-local white = string.find(uri, "/api/mg/v1/login/")
-if white == 1 then
-    ngx.var.my_upstream = login_uri
+local white = white_uri[uri]
+if white ~= nil then
+    ngx.var.my_upstream = white
 -- 如果请求没有带token，直接拒绝
 elseif headers_tab["Auth-Token"] == nil then
     ngx.status = 401

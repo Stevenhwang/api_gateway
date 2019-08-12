@@ -7,5 +7,9 @@ redis_config = {
     db = 10,
 }
 
-login_uri = "172.16.29.98:8000/v1/login/"
 check_auth_url = "http://172.16.29.98:8000/v1/authcheck/"
+
+white_uri = {
+    ["/api/mg/v1/login/"] = "172.16.29.98:8000/v1/login/",
+    ["/api/mg/v1/authorization/"] = "172.16.29.98:8000/v1/authorization/"
+}
