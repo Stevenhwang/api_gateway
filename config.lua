@@ -11,5 +11,6 @@ check_auth_url = "http://172.16.29.98:8000/v1/authcheck/"
 
 white_uri = {
     ["/api/mg/v1/login/"] = "172.16.29.98:8000/v1/login/",
+    ["/api/mg/v1/logout/"] = "172.16.29.98:8000/v1/logout/",
     ["/api/mg/v1/authorization/"] = "172.16.29.98:8000/v1/authorization/"
 }
