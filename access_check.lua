@@ -75,10 +75,8 @@ else
                 data = ngx.req.get_body_data(),
                 time = os.date('%Y-%m-%d %H:%M:%S')
             }
-            local today = os.date('%Y-%m-%d')
             local new_data = cjson.encode(data)
-            conn:lpush("ops_log_"..today, new_data) -- 按天为key存储日志
-            conn:expire("ops_log_"..today, 604800) -- 每天的日志存7天
+            conn:lpush("ops_log", new_data)
             -- 设置反向代理
             ngx.var.my_upstream = real_url
         end
