@@ -58,7 +58,7 @@ else
         local real_end, pos = string.gsub(uri, req_end, "")
         local real_url = tmp_obj["url"]..real_end
         -- 去后端查询是否有路由权限，先把带?号的去掉，避免干扰
-        local real_query_end = split.split(real_end, "?")
+        local real_query_end = split.split(uri, "?")
         local permit = check_auth.check(user_info["user_id"], real_query_end[1], request_method)
         if permit == "false" then
             ngx.status = 403
@@ -71,7 +71,7 @@ else
                 username = user_info.username,
                 login_ip = ngx.var.remote_addr,
                 method = request_method,
-                uri = real_url,
+                uri = uri,
                 data = ngx.req.get_body_data(),
                 time = os.date('%Y-%m-%d %H:%M:%S')
             }
