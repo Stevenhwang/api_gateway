@@ -65,7 +65,7 @@ else
             ngx.say("Permission denied!")
             ngx.exit(403)
         else
-            -- 存储日志到redis
+            -- 发布日志到redis
             ngx.req.read_body() -- 调用 ngx.req.read_body() 接口获取body参数
             local data = {
                 username = user_info.username,
@@ -76,7 +76,9 @@ else
                 time = os.date('%Y-%m-%d %H:%M:%S')
             }
             local new_data = cjson.encode(data)
-            conn:lpush("ops_log", new_data)
+            if request_method ~= "GET" then
+                conn:publish("ops_log", new_data)
+            end
             -- 设置反向代理
             ngx.var.my_upstream = real_url
         end
