@@ -13,5 +13,6 @@ white_uri = {
     ["/api/mg/v1/login/"] = "172.16.29.98:8000/v1/login/",
     ["/api/mg/v1/logout/"] = "172.16.29.98:8000/v1/logout/",
     ["/api/mg/v1/password/"] = "172.16.29.98:8000/v1/password/",
-    ["/api/mg/v1/authorization/"] = "172.16.29.98:8000/v1/authorization/"
+    ["/api/mg/v1/authorization/"] = "172.16.29.98:8000/v1/authorization/",
+    ["/api/cmdb/v1/socket/"] = "172.16.29.98:8200/v1/socket/",
 }
