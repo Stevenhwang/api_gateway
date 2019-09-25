@@ -47,7 +47,7 @@ else
         local uri_list = split.split(uri, "/")
         local req_end = "/"..uri_list[1].."/"..uri_list[2]
         -- 根据end_point去redis查询后端服务
-        local tmp_bs, err = conn:hget("backend_service", req_end)
+        local tmp_bs, err = conn:hget("backend_servicec5BF7FS66pbiBpKcHHFWvX", req_end)
         if not tmp_bs or tmp_bs == ngx.null then
             ngx.status = 500
             ngx.say("No backend service!")
