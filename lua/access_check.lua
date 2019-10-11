@@ -70,7 +70,7 @@ else
             local data = {
                 username = user_info.username,
                 -- login_ip = ngx.var.remote_addr,
-                login_ip = headers_tab["X-REAL-IP"] or headers_tab["X_FORWARDED_FOR"] or ngx.var.remote_addr or "0.0.0.0"
+                login_ip = headers_tab["X-REAL-IP"] or headers_tab["X_FORWARDED_FOR"] or ngx.var.remote_addr or "0.0.0.0",
                 method = request_method,
                 uri = uri,
                 data = ngx.req.get_body_data(),
