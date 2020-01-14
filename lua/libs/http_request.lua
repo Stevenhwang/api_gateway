@@ -13,4 +13,15 @@ function _M.check(uid, uri, method)
     return res.body
 end
 
+-- 网关日志上报
+function _M.upload(data)
+    local httpc = http.new()
+    local res, err = httpc:request_uri(upload_log_url, {
+        method = "POST",
+        body = data,
+        keepalive_timeout = 60,
+        keepalive_pool = 10
+      })
+    return res.body
+end
 return _M
